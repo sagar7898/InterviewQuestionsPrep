@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>All Questions</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+</head>
+<body>
+
+    <div id="navbar"></div>
+
+    <div class="container mt-4">
+        <h3>All Questions</h3>
+        <select id="categoryFilter" class="form-select mb-3" onchange="applyFilter()">
+            <option value="All">All</option>
+            <option value="CSharp">C#</option>
+            <option value="SQL">SQL</option>
+        </select>
+        <div id="allQuestions"></div>
+    </div>
+
+    <script src="/js/common.js"></script>
+    <script src="/js/all.js"></script>
+    <script>
+        loadNavbar();
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-csharp.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-sql.min.js"></script>
+</body>
+</html>

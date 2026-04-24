@@ -1,0 +1,211 @@
+[
+  {
+    "id": 1,
+    "category": "CSharp",
+    "question": "Swap two numbers without using a third variable",
+    "shortAnswer": "Use addition and subtraction to swap values",
+    "detailedAnswer": "Swap two numbers without using a temporary variable by using addition and subtraction operations.",
+    "code": "Console.Write(\"Enter first number (a): \");\nint a = Convert.ToInt32(Console.ReadLine());\n\nConsole.Write(\"Enter second number (b): \");\nint b = Convert.ToInt32(Console.ReadLine());\n\n// Before swapping\nConsole.WriteLine(\"Before swapping a = \" + a + \" and b = \" + b);\n\n// Swapping using + and -\na = a + b;\nb = a - b;\na = a - b;\n\n// After swapping (ONE LINE)\nConsole.WriteLine(\"After swapping a = \" + a + \" and b = \" + b);\n\nConsole.ReadLine();"
+  },
+  {
+    "id": 2,
+    "category": "CSharp",
+    "question": "Find factorial of a number using a loop",
+    "shortAnswer": "Multiply numbers from 1 to n",
+    "detailedAnswer": "Use a loop from 1 to the given number and multiply all values to calculate factorial.",
+    "code": "Console.Write(\"Enter a number: \");\nint num = Convert.ToInt32(Console.ReadLine());\nint facto = 1;\n\n// Factorial using loop\nfor (int i = 1; i <= num; i++)\n{\nfact = fact * i;\n}\n\nConsole.WriteLine(\"Factorial of \" + num + \" is \" + fact);\nConsole.ReadLine();"
+  },
+  {
+    "id": 3,
+    "category": "CSharp",
+    "question": "Check if a number is prime or not",
+    "shortAnswer": "Check divisibility from 2 to n/2",
+    "detailedAnswer": "A number is prime if it is not divisible by any number other than 1 and itself. Loop from 2 to n/2 and check divisibility.",
+    "code": "int num, i;\nbool isPrime = true;\n\nConsole.Write(\"Enter a number: \");\nnum = Convert.ToInt32(Console.ReadLine());\n\nif (num <= 1)\n{\n    isPrime = false;\n}\nelse\n{\n    for (i = 2; i <= num / 2; i++)\n    {\n        if (num % i == 0)\n        {\n            isPrime = false;\n            break;\n        }\n    }\n}\n\nif (isPrime)\n    Console.WriteLine(num + \" is a Prime Number\");\nelse\n    Console.WriteLine(num + \" is NOT a Prime Number\");\n\nConsole.ReadLine();"
+  },
+  {
+    "id": 4,
+    "category": "CSharp",
+    "question": "Reverse a number (e.g., 123 → 321)",
+    "shortAnswer": "Use modulus and loop",
+    "detailedAnswer": "Extract each digit using % 10 and build the reversed number by multiplying previous value by 10 and adding the digit.",
+    "code": "Console.Write(\"Enter a number: \");\nint num = Convert.ToInt32(Console.ReadLine());\n\nint rem = 0;\nint reverse = 0;\nint original = num; // store original number\n\nwhile (num != 0)\n{\n    rem = num % 10; // get last digit\n    reverse = reverse * 10 + rem; // build reverse\n    num = num / 10; // remove last digit\n}\n\nConsole.WriteLine(\"Reverse of \" + original + \" is \" + reverse);\nConsole.ReadLine();"
+  },
+  {
+    "id": 5,
+    "category": "CSharp",
+    "question": "Check if a number is palindrome (e.g., 121 → same when reversed)",
+    "shortAnswer": "Compare original and reversed number",
+    "detailedAnswer": "Reverse the number and compare it with the original number. If both are equal, it is a palindrome.",
+    "code": "Console.Write(\"Enter a number: \");\nint num = Convert.ToInt32(Console.ReadLine());\n\nint rem = 0;\nint reverse = 0;\nint original = num; // store original number\n\nwhile (num != 0)\n{\n    rem = num % 10; // get last digit\n    reverse = reverse * 10 + rem; // build reverse\n    num = num / 10; // remove last digit\n}\n\n// Check palindrome\nif (original == reverse)\n    Console.WriteLine(original + \" is a Palindrome\");\nelse\n    Console.WriteLine(original + \" is NOT a Palindrome\");\n\nConsole.ReadLine();"
+  },
+  {
+    "id": 6,
+    "category": "CSharp",
+    "question": "Count vowels and consonants in a string",
+    "shortAnswer": "Loop through string and check characters",
+    "detailedAnswer": "Convert string to lowercase, iterate through each character, and count vowels and consonants based on conditions.",
+    "code": "Console.WriteLine(\"Enter a string: \");\nstring input = Console.ReadLine();\ninput = input.ToLower();\n\nint vowels = 0;\nint consonants = 0;\n\nforeach (char ch in input)\n{\n    if (ch >= 'a' && ch <= 'z')\n    {\n        if (ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')\n        {\n            vowels++;\n        }\n        else\n        {\n            consonants++;\n        }\n    }\n}\n\nConsole.WriteLine(\"Vowels: \" + vowels);\nConsole.WriteLine(\"Consonants: \" + consonants);"
+  },
+  {
+    "id": 7,
+    "category": "CSharp",
+    "question": "Find the largest and smallest number in an integer array",
+    "shortAnswer": "Traverse array and compare values",
+    "detailedAnswer": "Initialize largest and smallest with first element, then loop through array and update values accordingly.",
+    "code": "Console.WriteLine(\"Enter number of elements: \");\nint n = Convert.ToInt32(Console.ReadLine());\n\nint[] arr = new int[n];\nConsole.WriteLine(\"Enter elements:\");\n\nfor (int i = 0; i < n; i++)\n{\n    arr[i] = Convert.ToInt32(Console.ReadLine());\n}\n\nint largest = arr[0];\nint smallest = arr[0];\n\nfor (int i = 1; i < n; i++)\n{\n    if (arr[i] > largest)\n    {\n        largest = arr[i];\n    }\n\n    if (arr[i] < smallest)\n    {\n        smallest = arr[i];\n    }\n}\n\nConsole.WriteLine(\"Largest: \" + largest);\nConsole.WriteLine(\"Smallest: \" + smallest);"
+  },
+  {
+    "id": 8,
+    "category": "CSharp",
+    "question": "Count occurrences of each character in a string",
+    "shortAnswer": "Use Dictionary to count frequency",
+    "detailedAnswer": "Traverse each character and store its count in a dictionary. Increment count if it already exists.",
+    "code": "Console.WriteLine(\"Enter a string: \");\nstring input = Console.ReadLine().ToLower();\n\nDictionary<char, int> charCount = new Dictionary<char, int>();\n\nforeach (char ch in input)\n{\n    if (ch != ' ')\n    {\n        if (charCount.ContainsKey(ch))\n        {\n            charCount[ch]++;\n        }\n        else\n        {\n            charCount[ch] = 1;\n        }\n    }\n}\n\nConsole.WriteLine(\"Character Counts:\");\n\nforeach (var item in charCount)\n{\n    Console.WriteLine(item.Key + \" : \" + item.Value);\n}"
+  },
+  {
+    "id": 9,
+    "category": "CSharp",
+    "question": "Count occurrences of duplicate characters in a string",
+    "shortAnswer": "Use Dictionary and filter count > 1",
+    "detailedAnswer": "Store character frequencies in a dictionary and print only those characters whose count is greater than 1.",
+    "code": "Console.WriteLine(\"Enter a string: \");\nstring input = Console.ReadLine().ToLower();\n\nDictionary<char, int> charCount = new Dictionary<char, int>();\n\nforeach (char ch in input)\n{\n    if (ch != ' ')\n    {\n        if (charCount.ContainsKey(ch))\n        {\n            charCount[ch]++;\n        }\n        else\n        {\n            charCount[ch] = 1;\n        }\n    }\n}\n\nConsole.WriteLine(\"Character Counts:\");\n\nforeach (var item in charCount)\n{\n    if (item.Value > 1)\n    {\n        Console.WriteLine(item.Key + \" : \" + item.Value);\n    }\n}"
+  },
+  {
+    "id": 10,
+    "category": "CSharp",
+    "question": "Count occurrences of duplicate words in a string",
+    "shortAnswer": "Use Dictionary and split string",
+    "detailedAnswer": "Split the sentence into words, store frequency using a dictionary, and print only words whose count is greater than 1.",
+    "code": "Console.WriteLine(\"Enter a sentence: \");\nstring input = Console.ReadLine().ToLower();\n\nstring[] words = input.Split(' ', StringSplitOptions.RemoveEmptyEntries);\n\nDictionary<string, int> wordCount = new Dictionary<string, int>();\n\nforeach (string word in words)\n{\n    if (wordCount.ContainsKey(word))\n    {\n        wordCount[word]++;\n    }\n    else\n    {\n        wordCount[word] = 1;\n    }\n}\n\nConsole.WriteLine(\"\\nDuplicate Words:\");\n\nforeach (var item in wordCount)\n{\n    if (item.Value > 1)\n    {\n        Console.WriteLine(item.Key + \" : \" + item.Value);\n    }\n}"
+  },
+  {
+    "id": 11,
+    "category": "CSharp",
+    "question": "Reverse a string",
+    "shortAnswer": "Traverse string from end",
+    "detailedAnswer": "Loop from the end of the string and build reversed words while maintaining spaces.",
+    "code": "Console.WriteLine(\"Enter string\");\nstring str = Console.ReadLine();\n\nstring msg = \"\";\nstring result = \"\";\n\nfor (int i = str.Length - 1; i >= 0; i--)\n{\n    if (str[i] != ' ')\n    {\n        msg = str[i] + msg;\n    }\n    else\n    {\n        result += msg + \" \";\n        msg = \"\";\n    }\n}\n\nresult += msg;\nConsole.WriteLine(result);"
+  },
+  {
+    "id": 12,
+    "category": "CSharp",
+    "question": "Check if two strings are anagrams (\"listen\" and \"silent\")",
+    "shortAnswer": "Sort both strings and compare",
+    "detailedAnswer": "Convert both strings to lowercase, sort their characters, and compare them. If equal, they are anagrams.",
+    "code": "Console.Write(\"Enter first string: \");\nstring str1 = Console.ReadLine().ToLower();\n\nConsole.Write(\"Enter second string: \");\nstring str2 = Console.ReadLine().ToLower();\n\nif (str1.Length != str2.Length)\n{\n    Console.WriteLine(\"Not Anagrams\");\n    return;\n}\n\nchar[] arr1 = str1.ToCharArray();\nchar[] arr2 = str2.ToCharArray();\n\nArray.Sort(arr1);\nArray.Sort(arr2);\n\nstring s1 = new string(arr1);\nstring s2 = new string(arr2);\n\nif (s1 == s2)\n    Console.WriteLine(\"Anagrams\");\nelse\n    Console.WriteLine(\"Not Anagrams\");"
+  },
+  {
+    "id": 13,
+    "category": "CSharp",
+    "question": "Print Fibonacci series up to N terms",
+    "shortAnswer": "Use loop and sum of previous two numbers",
+    "detailedAnswer": "Start with 0 and 1, then keep adding previous two numbers to generate the series.",
+    "code": "Console.WriteLine(\"Enter number of terms: \");\nint n = Convert.ToInt32(Console.ReadLine());\n\nint a = 0;\nint b = 1;\n\nConsole.Write(\"Fibonacci Series: \");\n\nfor (int i = 1; i <= n; i++)\n{\n    Console.WriteLine(a + \" \");\n    int fabo = a + b;\n    a = b;\n    b = fabo;\n}"
+  },
+  {
+    "id": 14,
+    "category": "CSharp",
+    "question": "Find the sum of digits of a given number",
+    "shortAnswer": "Use modulus and loop",
+    "detailedAnswer": "Extract each digit using % 10, add it to sum, and divide the number until it becomes 0.",
+    "code": "Console.WriteLine(\"Enter a number: \");\nint num = Convert.ToInt32(Console.ReadLine());\n\nint sum = 0;\n\nwhile (num != 0)\n{\n    int rem = num % 10; // get last digit\n    sum += rem; // add to sum\n    num = num / 10; // remove last digit\n}\n\nConsole.WriteLine(\"Sum of digits: \" + sum);"
+  },
+
+  {
+    "id": 101,
+    "category": "SQL",
+    "question": "Write a query to get the second highest salary",
+    "shortAnswer": "Use MAX with subquery",
+    "detailedAnswer": "Find the maximum salary that is less than the overall maximum salary using a subquery.",
+    "query": "SELECT MAX(salary) AS second_highest_salary\nFROM employees\nWHERE salary < (SELECT MAX(salary) FROM employees);"
+  },
+  {
+    "id": 102,
+    "category": "SQL",
+    "question": "Write a query to get the nth highest salary",
+    "shortAnswer": "Use ORDER BY with OFFSET FETCH",
+    "detailedAnswer": "Sort salaries in descending order and skip N-1 rows, then fetch the next row.",
+    "query": "SELECT DISTINCT salary\nFROM employees\nORDER BY salary DESC\nOFFSET (N-1) ROWS\nFETCH NEXT 1 ROW ONLY;"
+  },
+  {
+    "id": 103,
+    "category": "SQL",
+    "question": "Write a query to find duplicate records in a table",
+    "shortAnswer": "Use GROUP BY and HAVING",
+    "detailedAnswer": "Group records by column and filter those having count greater than 1.",
+    "query": "SELECT email, COUNT(*)\nFROM employees\nGROUP BY email\nHAVING COUNT(*) > 1;"
+  },
+  {
+    "id": 104,
+    "category": "SQL",
+    "question": "Write a query to delete duplicate records but keep only one",
+    "shortAnswer": "Use NOT IN with MIN(id)",
+    "detailedAnswer": "Keep the minimum id for each group and delete all other duplicate records.",
+    "query": "DELETE FROM employees\nWHERE id NOT IN (\nSELECT MIN(id)\nFROM employees\nGROUP BY email );"
+  },
+  {
+    "id": 105,
+    "category": "SQL",
+    "question": "Write a query to get employee count per department",
+    "shortAnswer": "Use GROUP BY with COUNT",
+    "detailedAnswer": "Group employees by department and count the number of employees in each department.",
+    "query": "SELECT department, COUNT(*) AS employee_count\nFROM employees\nGROUP BY department;"
+  },
+  {
+    "id": 106,
+    "category": "SQL",
+    "question": "Write a query to find employees who joined in the last 30 days",
+    "shortAnswer": "Use DATEADD and GETDATE",
+    "detailedAnswer": "Filter employees whose joining date is within the last 30 days using DATEADD and GETDATE functions.",
+    "query": "SELECT *\nFROM employees\nWHERE joining_date >= DATEADD(DAY, -30, GETDATE());"
+  },
+  {
+    "id": 107,
+    "category": "SQL",
+    "question": "Write a query to fetch employees with a salary greater than the average salary",
+    "shortAnswer": "Use subquery with AVG",
+    "detailedAnswer": "Compare employee salary with average salary using a subquery.",
+    "query": "SELECT *\nFROM employees\nWHERE salary > (\nSELECT AVG(salary)\nFROM employees );"
+  },
+  {
+    "id": 108,
+    "category": "SQL",
+    "question": "Write a query to fetch employees whose name starts with 'A'",
+    "shortAnswer": "Use LIKE operator",
+    "detailedAnswer": "Use LIKE 'A%' to filter names starting with A.",
+    "query": "SELECT *\nFROM employees\nWHERE name LIKE 'A%';"
+  },
+  {
+    "id": 109,
+    "category": "SQL",
+    "question": "Write a query to find employees with NULL values in phone number",
+    "shortAnswer": "Use IS NULL",
+    "detailedAnswer": "Filter records where phone_number is NULL.",
+    "query": "SELECT *\nFROM employees\nWHERE phone_number IS NULL;"
+  },
+  {
+    "id": 110,
+    "category": "SQL",
+    "question": "Write a query to get top 5 highest salaries",
+    "shortAnswer": "Use TOP with ORDER BY",
+    "detailedAnswer": "Sort salaries in descending order and fetch top 5 distinct values.",
+    "query": "SELECT DISTINCT TOP 5 salary\nFROM employees\nORDER BY salary DESC;"
+  },
+  {
+    "id": 111,
+    "category": "SQL",
+    "question": "Write a query to find employees who do not belong to any department",
+    "shortAnswer": "Use NOT EXISTS",
+    "detailedAnswer": "Find employees whose department_id does not match any department.",
+    "query": "SELECT *\nFROM employees e\nWHERE NOT EXISTS (\nSELECT 1\nFROM departments d\nWHERE d.department_id = e.department_id );"
+  },
+  {
+    "id": 112,
+    "category": "SQL",
+    "question": "Write a query to find total salary paid department-wise",
+    "shortAnswer": "Use GROUP BY with SUM",
+    "detailedAnswer": "Group employees by department and calculate total salary using SUM.",
+    "query": "SELECT department, SUM(salary) AS total_salary\nFROM employees\nGROUP BY department;"
+  }
+]

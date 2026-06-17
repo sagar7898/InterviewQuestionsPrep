@@ -111,6 +111,46 @@
     "detailedAnswer": "Extract each digit using % 10, add it to sum, and divide the number until it becomes 0.",
     "code": "Console.WriteLine(\"Enter a number: \");\nint num = Convert.ToInt32(Console.ReadLine());\n\nint sum = 0;\n\nwhile (num != 0)\n{\n    int rem = num % 10; // get last digit\n    sum += rem; // add to sum\n    num = num / 10; // remove last digit\n}\n\nConsole.WriteLine(\"Sum of digits: \" + sum);"
   },
+  {
+    "id": 15,
+    "category": "CSharp",
+    "question": "Find the first non-repeating character in a string",
+    "shortAnswer": "Use Dictionary to count character frequency",
+    "detailedAnswer": "Store frequency of each character in a Dictionary. Then traverse the string again and print the first character whose count is 1.",
+    "code": "Console.WriteLine(\"Enter a string: \");\nstring input = Console.ReadLine().ToLower();\n\nDictionary<char, int> charCount = new Dictionary<char, int>();\n\nforeach (char ch in input)\n{\n    if (charCount.ContainsKey(ch))\n    {\n        charCount[ch]++;\n    }\n    else\n    {\n        charCount[ch] = 1;\n    }\n}\n\nforeach (char ch in input)\n{\n    if (charCount[ch] == 1)\n    {\n        Console.WriteLine(\"First Non-Repeating Character: \" + ch);\n        break;\n    }\n}"
+  },
+  {
+    "id": 16,
+    "category": "CSharp",
+    "question": "Rotate an array by K positions to the right",
+    "shortAnswer": "Move last element to first position K times",
+    "detailedAnswer": "Store the last element of the array, shift all elements one position to the right, and place the last element at the beginning. Repeat this process K times to rotate the array.",
+    "code": "int[] arr = { 1, 2, 3, 4, 5 };\nint k = 2;\n\nfor (int i = 0; i < k; i++)\n{\n    int last = arr[arr.Length - 1];\n\n    for (int j = arr.Length - 1; j > 0; j--)\n    {\n        arr[j] = arr[j - 1];\n    }\n\n    arr[0] = last;\n}\n\nConsole.WriteLine(\"Rotated Array:\");\n\nforeach (int num in arr)\n{\n    Console.Write(num + \" \");\n}"
+  },
+  {
+    "id": 17,
+    "category": "CSharp",
+    "question": "Write a program to find the second largest element in an array",
+    "shortAnswer": "Track largest and second largest while traversing the array",
+    "detailedAnswer": "Initialize largest and secondLargest with the first element. Traverse the array and update largest and secondLargest whenever a bigger element is found. The secondLargest variable will contain the second highest value.",
+    "code": "Console.WriteLine(\"Enter array size:\");\nint n = Convert.ToInt32(Console.ReadLine());\n\nint[] arr = new int[n];\n\nfor (int i = 0; i < n; i++)\n{\n    Console.WriteLine(\"Enter element \" + (i + 1) + \":\");\n    arr[i] = Convert.ToInt32(Console.ReadLine());\n}\n\nint largest = arr[0];\nint secondLargest = arr[0];\n\nfor (int i = 1; i < arr.Length; i++)\n{\n    if (arr[i] > largest)\n    {\n        secondLargest = largest;\n        largest = arr[i];\n    }\n    else if (arr[i] > secondLargest && arr[i] != largest)\n    {\n        secondLargest = arr[i];\n    }\n}\n\nConsole.WriteLine(\"Second Largest Element: \" + secondLargest);"
+  },
+  {
+    "id": 18,
+    "category": "CSharp",
+    "question": "Find the longest common prefix among an array of strings",
+    "shortAnswer": "Compare strings and reduce prefix until all strings match",
+    "detailedAnswer": "Assume the first string as the prefix. Compare it with each string in the array. If a string does not start with the current prefix, keep reducing the prefix by removing the last character until a match is found. The remaining prefix is the longest common prefix.",
+    "code": "Console.WriteLine(\"Enter number of strings:\");\nint n = Convert.ToInt32(Console.ReadLine());\n\nstring[] arr = new string[n];\n\nfor (int i = 0; i < n; i++)\n{\n    Console.WriteLine(\"Enter string \" + (i + 1) + \":\");\n    arr[i] = Console.ReadLine().ToLower();\n}\n\nstring prefix = arr[0];\n\nfor (int i = 1; i < arr.Length; i++)\n{\n    while (!arr[i].StartsWith(prefix))\n    {\n        prefix = prefix.Substring(0, prefix.Length - 1);\n\n        if (prefix == \"\")\n        {\n            break;\n        }\n    }\n}\n\nConsole.WriteLine(\"Longest Common Prefix: \" + prefix);"
+  },
+  {
+    "id": 19,
+    "category": "CSharp",
+    "question": "Find the missing number in an array",
+    "shortAnswer": "Use sum formula and subtract array sum",
+    "detailedAnswer": "For an array containing numbers from 1 to N with one number missing, calculate the expected sum using the formula N*(N+1)/2. Then calculate the actual sum of array elements. The difference between expected sum and actual sum is the missing number.",
+    "code": "Console.WriteLine(\"Enter size of array:\");\nint n = Convert.ToInt32(Console.ReadLine());\n\nint[] arr = new int[n];\n\nfor (int i = 0; i < n; i++)\n{\n    Console.WriteLine(\"Enter element \" + (i + 1) + \":\");\n    arr[i] = Convert.ToInt32(Console.ReadLine());\n}\n\nint total = (n + 1) * (n + 2) / 2;\nint sum = 0;\n\nfor (int i = 0; i < n; i++)\n{\n    sum += arr[i];\n}\n\nint missingNumber = total - sum;\n\nConsole.WriteLine(\"Missing Number: \" + missingNumber);"
+  },
 
   {
     "id": 101,
